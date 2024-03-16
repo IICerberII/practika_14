@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="Window3" Height="450" Width="400" ResizeMode="NoResize">
+        Title="Window3" Height="450" Width="400" ResizeMode="NoResize" Icon="image/icon.png">
     <Grid Background="#FFFDFAF1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="auto"></RowDefinition>
             </Grid.RowDefinitions>
             <DockPanel Grid.Row="0" Grid.Column="1" Grid.RowSpan="2" Margin="10" HorizontalAlignment="Stretch" Name="groupBoxToDo">
-                <CheckBox Margin="5" DockPanel.Dock="Top" Checked="CheckBox_Checked" Unchecked="CheckBox_UnChecked">Добавление новых дел</CheckBox>
-                <GroupBox Background="#FDF5DF" Visibility="Visible" Name="GroupToDo">
+            <TextBlock DockPanel.Dock="Top" Text="Новое дело" FontSize="25" TextAlignment="Center"/>
+            <GroupBox Background="#FDF5DF" Visibility="Visible" Name="GroupToDo" >
                     <StackPanel>
                         <TextBlock> Название:</TextBlock>
                         <TextBox Name="titleToDo"></TextBox>
@@ -24,7 +24,7 @@
                     </StackPanel>
                 </GroupBox>
             </DockPanel>
-            <Button Grid.Row="2" Grid.Column="0" Margin="5" Background="#5EBEC4" MinHeight="30" MaxWidth="150" VerticalAlignment="Center" Click="Button_Click">Сохранить дело</Button>
+        <Button Grid.Row="2" Grid.Column="0" Margin="5" Background="#5EBEC4" MinHeight="30" MaxWidth="150" VerticalAlignment="Center" Click="Button_Click">Добавить дело</Button>
         </Grid>
 
 </Window>

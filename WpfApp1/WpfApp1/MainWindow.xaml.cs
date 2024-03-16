@@ -20,28 +20,28 @@ namespace WpfApp1
     /// </summary>
     public partial class MainWindow : Window
     {
-       //List<ToDo> strList { get; set; }
+       internal List<ToDo> strList { get; set; }
 
         
         public MainWindow()
         {
             InitializeComponent();
-            List<ToDo> strList = new List<ToDo>();
+            strList = new List<ToDo>();
+            DataGridProduct.ItemsSource = strList;
             strList.Add(new ToDo("Приготовить покушать", "Нет описания", new DateTime (2024, 01, 15)));
             strList.Add(new ToDo("Поработать", "Съездить на совещание в Москву", new DateTime(2024, 01, 20)));
             strList.Add(new ToDo("Отдохнуть", "Съездить в отпуск в Сочи", new DateTime(2024, 02, 01)));
-            DataGridProduct.ItemsSource = strList;
+            
         }
 
         private void buttonAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            Window3 window3 = new Window3();
+            window3.Owner = this;
+            window3.Show();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        { }
-
-            /** private void Button_Click(object sender, RoutedEventArgs e)
+             private void Button_Click(object sender, RoutedEventArgs e)
              {
                  if (DataGridProduct.SelectedItem != null)
                  {
@@ -56,7 +56,7 @@ namespace WpfApp1
 
                      }
                  }
-             }**/
+             }
 
         }
 }

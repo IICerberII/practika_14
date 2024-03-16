@@ -22,15 +22,9 @@ namespace WpfApp1
         public Window3()
         {
             InitializeComponent();
-        }
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-            GroupToDo.Visibility = Visibility.Visible;
-        }
-        private void CheckBox_UnChecked(object sender, RoutedEventArgs e)
-        {
-            GroupToDo.Visibility = Visibility.Hidden;
+            dateToDo.SelectedDate = new DateTime(2024, 01, 10);
+            descriptionToDo.Text = "Описания нет";
         }
 
         private void descriptionToDo_TextChanged(object sender, TextChangedEventArgs e)
@@ -41,6 +35,22 @@ namespace WpfApp1
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 
+            string Name = titleToDo.Text;
+            DateTime? selectedDate = dateToDo.SelectedDate;
+
+            DateTime dueDate = selectedDate ?? DateTime.Now;
+            string Description = descriptionToDo.Text;
+
+            MainWindow window = (MainWindow)this.Owner;
+            window.strList.Add(new ToDo(Name, Description, dueDate));
+            window.DataGridProduct.ItemsSource = null;
+            window.DataGridProduct.ItemsSource = window.strList;
+
+
+            titleToDo.Text = "";
+            dateToDo.SelectedDate = new DateTime(2024, 01, 10);
+            descriptionToDo.Text = "Описания нет";
         }
     }
 }
+//(this.Owner as MainWindow)
